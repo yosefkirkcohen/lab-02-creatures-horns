@@ -36,3 +36,20 @@
     transform: rotate(360deg);
   }
 }
+
+img {
+  width: 200px;
+}
+
+.creature {
+  border: solid 1px black;
+  width: 300px;
+  height: 330px;
+}
+
+.creaturesContainer {
+  display: flex;
+  flex-wrap: wrap;
+  
+
+}

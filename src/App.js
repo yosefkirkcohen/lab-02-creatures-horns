@@ -1,6 +1,5 @@
 import logo from './logo.svg';
 import './App.css';
-import images from 'data.js';
 import Header from './Header.js';
 import ImageList from './ImageList.js';
 

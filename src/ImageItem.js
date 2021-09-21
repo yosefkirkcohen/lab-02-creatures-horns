@@ -3,7 +3,7 @@ import React, { Component } from 'react'
 export default class ImageItem extends Component {
     render() {
         return (
-            <div>
+            <div className='creature'>
                 <div>
                     Name is {this.props.title}
                 </div>
