@@ -5,6 +5,9 @@ export default class Dropdown extends Component {
         return (
             <div>
                 <select onChange={this.props.handlingShit}>
+                    <option value='0'>
+                        All
+                    </option>
                     {
                         this.props.arrOfOptions.map(option => {return <option value={option}>
                             {option}
@@ -16,6 +19,3 @@ export default class Dropdown extends Component {
     }
 }
 
-{/* <option value='narwhal'>narwhal</option>
-<option value='rhino'>rhino</option>
-<option value='unicorn'>unicorn</option> */}
