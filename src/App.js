@@ -3,6 +3,7 @@ import React, { Component } from 'react'
 import './App.css';
 import ImageItem from './ImageItem.js';
 import images from './data.js';
+import Dropdown from './Dropdown.js'
 
 
 
@@ -20,11 +21,12 @@ export default class App extends Component {
     <div className="App">
       <header>
               <h1>Title</h1>
-              <select onChange={this.handleStuff}>
-                  <option value='narwhal'>narwhal</option>
-                  <option value='rhino'>rhino</option>
-                  <option value='unicorn'>unicorn</option>
-              </select>
+              <Dropdown 
+                handlingShit={this.handleStuff}
+                arrOfOptions={[
+                  'narwhal', 'rhino', 'unicorn'
+                ]}
+              />
       </header>
       <div className='creaturesContainer'>
          {images
