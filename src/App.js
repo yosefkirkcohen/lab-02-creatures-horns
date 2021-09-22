@@ -1,45 +1,52 @@
 import logo from './logo.svg';
 import React, { Component } from 'react'
 import './App.css';
-import ImageItem from './ImageItem.js';
-import images from './data.js';
+import Dropdown from './Dropdown.js'
+import ImageList from './ImageList';
+import images from './data'
 
 
 
 
 export default class App extends Component {
-  state = {keyword: ''}
+  state = {keyword: '0',
+           horns: 0
+}
 
-  handleStuff = (e) => {
+  handleKeyword = (e) => {
     this.setState({keyword: e.target.value })
 }
-  
+  handleHorns = (e) => {
+    this.setState({horns: Number(e.target.value)})
+  }
+
   render() {
+
+    const filteredImages = images
+  .filter(entry => entry.keyword === this.state.keyword || this.state.keyword === '0')
+  .filter(entry => entry.horns === this.state.horns || this.state.horns === 0)
     
   return (
     <div className="App">
       <header>
               <h1>Title</h1>
-              <select onChange={this.handleStuff}>
-                  <option value='narwhal'>narwhal</option>
-                  <option value='rhino'>rhino</option>
-                  <option value='unicorn'>unicorn</option>
-              </select>
+              <Dropdown 
+                handlingShit={this.handleKeyword}
+                arrOfOptions={[
+                  'narwhal', 'rhino', 'unicorn'
+                ]}
+              />
+              <Dropdown 
+                handlingShit={this.handleHorns}
+                arrOfOptions={[
+                  1, 2, 3
+                ]}
+              />
       </header>
-      <div className='creaturesContainer'>
-         {images
-         .filter(entry => entry.keyword === this.state.keyword)
-         .map(entry => {
-             return <div>
-                 <ImageItem
-                      title={entry.title}
-                      url={entry.url}
-                      description={entry.description}
-                      horns={entry.horns}
-                 />
-             </div>
-         })}
-      </div>
+      <ImageList 
+        filteredList={filteredImages}
+        state={this.state}
+      />
     </div>
   );}
 }
